@@ -29,8 +29,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #internal
     'users',
+    'tasks',
 
     #external
+    'drf_yasg',
     'rest_framework',
     'rest_framework_simplejwt',
 ]
