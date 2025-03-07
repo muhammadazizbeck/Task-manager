@@ -10,6 +10,9 @@ djangorestframework-simplejwt = "*"
 psycopg2 = "*"
 python-decouple = "*"
 drf-yasg = "*"
+channels = "*"
+channels-redis = "*"
+daphne = "*"
 
 [dev-packages]
 
