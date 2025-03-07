@@ -13,6 +13,8 @@ drf-yasg = "*"
 channels = "*"
 channels-redis = "*"
 daphne = "*"
+celery = "*"
+redis = "*"
 
 [dev-packages]
 
