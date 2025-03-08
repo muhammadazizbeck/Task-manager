@@ -36,10 +36,19 @@ INSTALLED_APPS = [
 
 
     #external
+    'corsheaders',
     'drf_yasg',
     'rest_framework',
     'rest_framework_simplejwt',
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # React serveri uchun
+    "http://127.0.0.1:3000",  # Agar localhost ishlatilayotgan bo‘lsa
+]
+
+CORS_ALLOW_CREDENTIALS = True  # Agar cookie orqali auth bo‘lsa
+
 
 ASGI_APPLICATION = 'config.asgi.application'
 
@@ -51,6 +60,7 @@ CHANNEL_LAYERS = {
         }
     }
 }
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES':(
@@ -66,6 +76,7 @@ CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -75,6 +86,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [

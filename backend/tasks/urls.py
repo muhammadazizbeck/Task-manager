@@ -1,13 +1,8 @@
 from django.urls import path,include
-from rest_framework.routers import SimpleRouter
-from .views import ProjectViewSet,TaskViewSet,CommentViewSet
+from .views import TaskListCreateApiView,TaskUpdateRetrieveDestroyApiView
 
-router = SimpleRouter()
-
-router.register(r'projects',ProjectViewSet)
-router.register(r'tasks',TaskViewSet)
-router.register(r'comments',CommentViewSet)
 
 urlpatterns = [
-    path('',include(router.urls)),
+    path('lcview/',TaskListCreateApiView.as_view(),name='task-list-create'),
+    path('rudview/',TaskUpdateRetrieveDestroyApiView.as_view(),name='task-retrieve-update-destroy')
 ]

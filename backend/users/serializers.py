@@ -25,7 +25,16 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['email'] = user.email
         return token
     
+from rest_framework import serializers
+
 class ChangePasswordSerializer(serializers.Serializer):
     old_password = serializers.CharField(required=True)
     new_password = serializers.CharField(required=True)
+
+    def validate_new_password(self, value):
+        """Yangi parol uzunligi 8 belgidan kam bo‘lmasligi kerak"""
+        if len(value) < 8:
+            raise serializers.ValidationError("New password must be at least 8 characters long.")
+        return value
+
     

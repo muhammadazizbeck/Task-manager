@@ -15,6 +15,7 @@ channels-redis = "*"
 daphne = "*"
 celery = "*"
 redis = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 
